@@ -15,6 +15,7 @@ class ConcessionariaController extends Controller
     public function index()
     {
         //
+        return Concessionaria::all();
     }
 
     /**
@@ -22,9 +23,11 @@ class ConcessionariaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        Concessionaria::create($request->all());
+        return $request->all();
     }
 
     /**
@@ -36,6 +39,18 @@ class ConcessionariaController extends Controller
     public function store(Request $request)
     {
         //
+        $concessionaria = new Concessionaria;
+        $concessionaria->nome = $request->nome;
+        $concessionaria->endereco = $request->endereco;
+        $concessionaria->numero = $request->numero;
+        $concessionaria->bairro = $request->bairro;
+        $concessionaria->cidade = $request->cidade;
+        $concessionaria->complemento = $request->complemento;
+        $concessionaria->uf = $request->uf;
+        $concessionaria->cep = $request->cep;
+        $concessionaria->telefone = $request->telefone;
+        $concessionaria->save();
+        return $request->all();
     }
 
     /**

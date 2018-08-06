@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Concessionaria; 
 use App\Usuario; 
 
-use App\Interfaces\Personable;
-use App\Traits\Personable as PersonableTrait;
+
+
 
 
 class TestDrive extends Model
@@ -22,10 +23,18 @@ class TestDrive extends Model
     protected $fillable = [
         'data',
         'usuarios_id',
+        'concessionarias_id'
     ];
     protected $guarded = [];
 
-    public function usuarios():BelongsTo{
-        return $this->belongsTo(Usuario::class);
+    
+    public function usuario(): HasOne {
+        return $this->hasOne(Usuario::class, 'usuarios_id');
     }
+
+    public function testDrives(): BelongsTo {
+        return $this->belongsTo(TestDrive::class);
+    }
+
+
 }

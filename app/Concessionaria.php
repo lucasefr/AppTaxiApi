@@ -27,4 +27,8 @@ class Concessionaria extends Model
     
 
     protected $guarded = [];
+
+    public function testDrives(): HasMany {
+        return $this->hasMany(TestDrive::class, 'concessionarias_id');
+    }
 }

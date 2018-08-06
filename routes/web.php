@@ -15,11 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/usuarios', 'UsuarioController@index');
-Route::post('/usuarios', 'UsuarioController@create');
+Route::resource('/usuarios', 'UsuarioController');
+Route::resource('/concessionarias', 'ConcessionariaController');
+Route::resource('/testDrives', 'TestDriveController');
 
-Route::get('/testDrives', 'TestDriveController@index');
-Route::post('/testDrives', 'TestDriveController@create');
 
-Route::get('/concessionarias', 'ConcessionariaController@index');
-Route::post('/concessionarias', 'ConcessionariaController@create');
+//Route::get('/usuarios', 'UsuarioController@index');
+//Route::post('/usuarios', 'UsuarioController@create');
+
+//Route::get('/testDrives', 'TestDriveController@index');
+//Route::post('/testDrives', 'TestDriveController@create');
+
+//Route::get('/concessionarias', 'ConcessionariaController@index');
+//Route::post('/concessionarias', 'ConcessionariaController@create');

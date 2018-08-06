@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 use App\TestDrive;
 
@@ -24,7 +24,7 @@ class Usuario extends Model
     ];
     protected $guarded = [];
     
-    public function testDrive(): hasOne {
-        return $this->hasOne(TestDrive::class, 'usuarios_id');
+    public function testDrive():BelongsTo{
+        return $this->belongsTo(testDrive::class);
     }
 }

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TestDriveController extends Controller
 {
+    public function __construct(){
+        //
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +29,7 @@ class TestDriveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         
@@ -40,6 +46,12 @@ class TestDriveController extends Controller
     public function store(Request $request)
     {
         //
+        $testDrive = new TestDrive;
+        $testDrive->usuarios_id = $request->usuarios_id;
+        $testDrive->data = $request->data;
+        $testDrive->concessionarias_id = $request->concessionarias_id;
+        $testDrive->save();
+        return $request->all();
     }
 
     /**
@@ -51,6 +63,7 @@ class TestDriveController extends Controller
     public function show(TestDrive $testDrive)
     {
         //
+        return $testDrive->all();
     }
 
     /**
