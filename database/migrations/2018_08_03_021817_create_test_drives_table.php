@@ -15,8 +15,8 @@ class CreateTestDrivesTable extends Migration
     {
         Schema::create('testDrives', function (Blueprint $table) {
             $table->increments('idTestDrives');
-            $table->integer('usuarios_id')->unsigned();
-            $table->foreign('usuarios_id')->references('idUsuarios')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('users_id')->unsigned();
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('concessionarias_id')->unsigned();
             $table->foreign('concessionarias_id')->references('idConcessionaria')->on('concessionarias')->onUpdate('cascade')->onDelete('cascade');
             $table->string('data');

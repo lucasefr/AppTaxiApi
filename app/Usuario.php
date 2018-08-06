@@ -24,7 +24,5 @@ class Usuario extends Model
     ];
     protected $guarded = [];
     
-    public function testDrive():BelongsTo{
-        return $this->belongsTo(testDrive::class);
-    }
+    
 }

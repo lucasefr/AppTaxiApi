@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Concessionaria; 
-use App\Usuario; 
+use App\User; 
 
 
 
@@ -22,14 +22,14 @@ class TestDrive extends Model
     public $timestamps = true;
     protected $fillable = [
         'data',
-        'usuarios_id',
+        'users_id',
         'concessionarias_id'
     ];
     protected $guarded = [];
 
     
-    public function usuario(): HasOne {
-        return $this->hasOne(Usuario::class, 'usuarios_id');
+    public function users(): HasOne {
+        return $this->hasOne(User::class, 'users_id');
     }
 
     public function testDrives(): BelongsTo {

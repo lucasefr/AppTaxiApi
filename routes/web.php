@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/usuarios', 'UsuarioController');
-Route::resource('/concessionarias', 'ConcessionariaController');
-Route::resource('/testDrives', 'TestDriveController');
+
 
 
 //Route::get('/usuarios', 'UsuarioController@index');
